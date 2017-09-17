@@ -1,0 +1,73 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+.icon-block {
+    padding: 0 15px;
+}
+
+.icon-block .material-icons {
+    font-size: inherit;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    height: 100%;
+    width: 100%;
+    display: table;
+}
+
+#header {
+
+    background-color: #f00;
+    display: table-row;
+}
+
+#footer {
+    background-color: #0f0;
+    display: table-row;
+}
+
+#playground {
+    background-color: lightgrey;
+    color: #fff;
+    height: 100%;
+    display: table-row;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(20, auto);
+    grid-template-rows: repeat(10, auto);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    height: 100%;
+    padding: 15px;
+}
+
+.grid .item {
+    background-color: rgba(0, 128, 0, 0.14);
+    display: grid;
+    vertical-align: middle;
+    color: black;
+}
+
+.grid .item div {
+    align-self: center;
+    justify-self: center;
+}
+
+.grid .current-user-item {
+    background: royalblue;
+    font-weight: bold;
+    color: white;
+}

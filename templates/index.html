@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Flask-SocketIO Word Highlighter</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="../static/libs/css/materialize.min.css">
+    <link rel="stylesheet" href="../static/css/appIO.css">
+</head>
+
+<body>
+<div id="wrapper">
+    <div id="header" class="light-blue lighten-1">
+        <div class="container"><a href="#" class="brand-logo left">PyConES Real-Time Game</a>
+            <ul class="right">
+                <li><span id="user-cnt">0</span> Users</li>
+                <a class="grey-text text-lighten-4 right"
+                   href="https://github.com/tuxskar/trending-highlighter">Github</a>
+            </ul>
+        </div>
+    </div>
+
+    <div id="playground" class="row">
+        <div class="grid"></div>
+    </div>
+
+
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col s6">
+                    Icon emoji or something similar
+                </div>
+
+                <div class="col s6">
+                    <div style="text-align:center;max-width:480px;">
+                        <button class='move' direction="up">UP</button>
+                        <br><br>
+                        <button class='move' direction="left">LEFT</button>
+                        <button class='move' direction="right">RIGHT</button>
+                        <br><br>
+                        <button class='move' direction="down">DOWN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Compiled and minified JavaScript -->
+
+
+</div>
+
+
+</body>
+{% assets filters="jsmin", output="gen/libs.js",
+"libs/js/socket.io.min.js", "libs/js/jquery.2.2.4.min.js",
+"libs/js/materialize.js" %}
+    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+{% endassets %}
+
+{% assets output="gen/appIO.js",
+"js/appIO.js" %}
+    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+{% endassets %}
+
+</html>
