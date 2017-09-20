@@ -7,8 +7,8 @@ from fabric.context_managers import cd, prefix, settings as fabsettings
 from fabric.contrib.files import exists
 from fabric.operations import sudo
 
-if os.path.exists(os.path.expanduser("~/.ssh/config")):
-    env.use_ssh_config = True
+#if os.path.exists(os.path.expanduser("~/.ssh/config")):
+env.use_ssh_config = True
 
 env.VENV_RELATIVE_PATH = '/venv'
 env.repopath = '~/flask-socketio-grid-game'
@@ -64,7 +64,7 @@ def update_requirements():
 def update_assets():
     with cd(env.repopath):
         with virtualenv():
-            run('/manage.py assets --parse-templates build ')
+            run('./manage.py assets --parse-templates build ')
 
 
 def update_git():
