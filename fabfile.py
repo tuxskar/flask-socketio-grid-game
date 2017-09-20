@@ -64,7 +64,7 @@ def update_requirements():
 def update_assets():
     with cd(env.repopath):
         with virtualenv():
-            run('./manage.py assets --parse-templates build ')
+            run('python manage.py assets --parse-templates build ')
 
 
 def update_git():
