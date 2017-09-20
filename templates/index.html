@@ -3,8 +3,10 @@
 <head>
     <title>Flask-SocketIO Word Highlighter</title>
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="../static/libs/css/materialize.min.css">
-    <link rel="stylesheet" href="../static/css/appIO.css">
+    {% assets filters="jsmin", output="gen/css.js",
+"libs/css/materialize.min.css", "css/appIO.css" %}
+        <link rel="stylesheet" href="{{ ASSET_URL }}">
+    {% endassets %}
 </head>
 
 <body>
@@ -14,7 +16,7 @@
             <ul class="right">
                 <li><span id="user-cnt">0</span> Users</li>
                 <a class="grey-text text-lighten-4 right"
-                   href="https://github.com/tuxskar/trending-highlighter">Github</a>
+                   href="https://github.com/tuxskar/flask-socketio-grid-game">Github</a>
             </ul>
         </div>
     </div>

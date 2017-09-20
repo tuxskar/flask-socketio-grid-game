@@ -1,3 +1,4 @@
+fabric
 attrs==16.3.0
 click==6.7
 coverage==4.3.4
