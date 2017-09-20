@@ -58,13 +58,13 @@ def update_requirements():
     with virtualenv():
         with cd(env.repopath):
             requirements_file = 'requirements.txt'
-            run('pip install -q -U -r %s' % requirements_file)
+            run('pip install -U -r %s' % requirements_file)
 
 
 def update_assets():
     with cd(env.repopath):
         with virtualenv():
-            run('/.manage.py assets --parse-templates build ')
+            run('/manage.py assets --parse-templates build ')
 
 
 def update_git():
