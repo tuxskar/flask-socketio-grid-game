@@ -6,6 +6,7 @@ enum-compat==0.0.2
 eventlet==0.21.0
 Flask==0.10.1
 Flask-Assets==0.12
+Flask-Script==2.0.5
 Flask-SocketIO==2.8.6
 greenlet==0.4.12
 itsdangerous==0.24
