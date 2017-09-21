@@ -21,7 +21,10 @@ AVAILABLE_SYMBOLS = [x for x in string.ascii_uppercase if x not in 'AEIOU']
 
 @app.route('/')
 def index():
-    return render_template('index.html', grid_dimentions=GRID_DIMENSIONS)
+    auto_move = request.args.get('auto_move')
+    max_time_wait = int(auto_move) if auto_move and auto_move.isnumeric() else 300
+    print(max_time_wait)
+    return render_template('index.html', auto_move=auto_move, max_time_wait=max_time_wait)
 
 
 def get_init_position():

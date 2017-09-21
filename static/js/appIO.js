@@ -87,9 +87,12 @@ $(document).ready(function () {
     function updateGridPosition(position, symbol, positionUserId, remove) {
         var currentUserClass = (currentUserId === positionUserId ? 'current-user-item' : 'other-user-item');
         if (remove) {
-            var $positionItem = $('#' + positionUserId);
-            $positionItem.parent().removeClass(currentUserClass);
+            var $positionItem = $('#' + positionUserId),
+            $parent = $positionItem.parent();
             $positionItem.remove();
+            if ($parent.find('div').length === 0){
+                $parent.removeClass(currentUserClass);
+            }
             return
         }
         var posX = position[0], posY = position[1],

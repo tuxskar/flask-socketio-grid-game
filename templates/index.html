@@ -31,9 +31,11 @@
             <br><br>
             <button class='move btn waves-effect' id="btn-left"><i class="large material-icons">arrow_back</i></button>
             <span id="symbol"></span>
-            <button class='move btn waves-effect' id="btn-right"><i class="large material-icons">arrow_forward</i></button>
+            <button class='move btn waves-effect' id="btn-right"><i class="large material-icons">arrow_forward</i>
+            </button>
             <br><br>
-            <button class='move btn waves-effect' id="btn-down"><i class="large material-icons">arrow_downward</i></button>
+            <button class='move btn waves-effect' id="btn-down"><i class="large material-icons">arrow_downward</i>
+            </button>
         </div>
     </div>
     <!-- Compiled and minified JavaScript -->
@@ -53,5 +55,17 @@
 "js/appIO.js" %}
     <script type="text/javascript" src="{{ ASSET_URL }}"></script>
 {% endassets %}
+
+{% if auto_move %}
+    {% assets output="gen/appIO-auto_move.js",
+"js/auto-movement.js" %}
+        <script>
+        userMaxTimeWait = {{ max_time_wait }};
+        </script>
+        <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+
+    {% endassets %}
+{% endif %}
+
 
 </html>
