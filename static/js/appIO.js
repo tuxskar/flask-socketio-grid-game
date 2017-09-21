@@ -99,9 +99,17 @@ $(document).ready(function () {
         $grid.find('.item:eq(' + gridPosition + ')').addClass(currentUserClass).append($newCell)
     }
 
-    $('.move').on('click', function (e) {
-        var direction = $(e.target).attr('direction');
-        makeMove(direction);
+    $('#btn-up').on('click', function (e) {
+        makeMove('up');
+    });
+    $('#btn-down').on('click', function (e) {
+        makeMove('down');
+    });
+    $('#btn-left').on('click', function (e) {
+        makeMove('left');
+    });
+    $('#btn-right').on('click', function (e) {
+        makeMove('right');
     });
 
     function makeMove(direction){

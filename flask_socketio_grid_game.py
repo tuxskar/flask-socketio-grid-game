@@ -16,6 +16,8 @@ GRID = {}
 
 users_connected = set()
 
+AVAILABLE_SYMBOLS = [x for x in string.ascii_uppercase if x not in 'AEIOU']
+
 
 @app.route('/')
 def index():
@@ -33,7 +35,7 @@ def on_connect():
     users_connected.add(user_id)
 
     # Calculate the user_id, symbol and initial position
-    symbol = random.choice(string.ascii_uppercase)
+    symbol = random.choice(AVAILABLE_SYMBOLS)
     init_position = get_init_position()
     payload = dict(userId=user_id, symbol=symbol, pos=init_position)
 
