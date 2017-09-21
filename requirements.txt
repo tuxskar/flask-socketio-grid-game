@@ -18,4 +18,4 @@ python-socketio==1.7.4
 six==1.9.0
 webassets==0.12.1
 Werkzeug==0.10.4
-
+pytest
