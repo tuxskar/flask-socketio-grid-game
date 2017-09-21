@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>PyConES Real-Time Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../static/libs/css/materialize.min.css">
     <link rel="stylesheet" href="../static/css/appIO.css">
 </head>
@@ -24,23 +25,14 @@
 
 
     <div id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col s6">
-                    Icon emoji or something similar
-                </div>
-
-                <div class="col s6">
-                    <div style="text-align:center;max-width:480px;">
-                        <button class='move' direction="up">UP</button>
-                        <br><br>
-                        <button class='move' direction="left">LEFT</button>
-                        <button class='move' direction="right">RIGHT</button>
-                        <br><br>
-                        <button class='move' direction="down">DOWN</button>
-                    </div>
-                </div>
-            </div>
+        <div class="col s12 footer-content">
+            <button class='move' direction="up">UP</button>
+            <br><br>
+            <button class='move' direction="left">LEFT</button>
+            <span id="symbol"></span>
+            <button class='move' direction="right">RIGHT</button>
+            <br><br>
+            <button class='move' direction="down">DOWN</button>
         </div>
     </div>
     <!-- Compiled and minified JavaScript -->

@@ -17,17 +17,12 @@ $(document).ready(function () {
 
     var currentUserId;
 
-
-    // event handlers
-    socket.on('connect', function () {
-        socket.emit('join', {})
-    });
-
     /**
      * Initializing this user
      */
     socket.on('message', function (data) {
         if (data.userId) currentUserId = data.userId;
+        if (data.symbol) $('#symbol').text(data.symbol);
         if (data.gridDimension) {
             $grid.empty();
             columns = data.gridDimension[0];
@@ -78,7 +73,6 @@ $(document).ready(function () {
             var userInfo = grid[userId],
                 userPos = userInfo.pos,
                 userSymbol = userInfo.symbol;
-            console.log(userId, grid[userId]);
             updateGridPosition(userPos, userSymbol, userId);
         });
     });
@@ -91,7 +85,7 @@ $(document).ready(function () {
      * @param remove: if some value is here, the position will be removed
      */
     function updateGridPosition(position, symbol, positionUserId, remove) {
-        var currentUserClass = (currentUserId === positionUserId ? 'current-user-item' : '');
+        var currentUserClass = (currentUserId === positionUserId ? 'current-user-item' : 'other-user-item');
         if (remove) {
             var $positionItem = $('#' + positionUserId);
             $positionItem.parent().removeClass(currentUserClass);
@@ -101,7 +95,6 @@ $(document).ready(function () {
         var posX = position[0], posY = position[1],
             // converting from the position in X, Y to the position in the list of cells in the grid
             gridPosition = ((posY - 1) * columns) + (posX - 1),
-            currentUserClass = (currentUserId === positionUserId ? 'current-user-item' : ''),
             $newCell = $('<div/>').text(symbol).attr({'id': positionUserId});
         $grid.find('.item:eq(' + gridPosition + ')').addClass(currentUserClass).append($newCell)
     }

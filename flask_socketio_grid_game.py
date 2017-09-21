@@ -26,8 +26,8 @@ def get_init_position():
     return tuple([random.choice(range(x)) + 1 for x in GRID_DIMENSIONS])
 
 
-@socketio.on('join', namespace='/grid-game')
-def on_join(msg):
+@socketio.on('connect', namespace='/grid-game')
+def on_connect():
     # Adding the user to the room to count on him
     user_id = request.sid
     users_connected.add(user_id)
@@ -41,7 +41,7 @@ def on_join(msg):
     GRID[user_id] = dict(pos=init_position, symbol=symbol)
 
     # Sent to the user the grid status
-    send(dict(userId=user_id, gridDimension=GRID_DIMENSIONS))
+    send(dict(userId=user_id, symbol=symbol, gridDimension=GRID_DIMENSIONS))
     emit('grid_status', GRID)
 
     # Sent in broadcast the new user, the new symbol and the new position

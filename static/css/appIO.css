@@ -33,8 +33,12 @@ html, body {
 }
 
 #footer {
-    background-color: #0f0;
+    background-color: mediumaquamarine;
     display: table-row;
+}
+.footer-content{
+    margin: 10px 0;
+    text-align: center;
 }
 
 #playground {
@@ -67,7 +71,21 @@ html, body {
 }
 
 .grid .current-user-item {
-    background: royalblue;
+    background: royalblue !important;
     font-weight: bold;
+    color: white;
+}
+.grid .other-user-item{
+    background: indianred;
+}
+
+#symbol {
+    padding: 5px 10px;
+    color: white;
+    background: royalblue;
+}
+
+.brand-logo {
+    font-size: 3em;
     color: white;
 }
