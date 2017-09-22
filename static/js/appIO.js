@@ -6,7 +6,7 @@ $(document).ready(function () {
     var rows,
         columns,
         $grid = $('.grid'),
-        grid;
+        itemHeight, itemWidth;
 
 
     // Connect to the Socket.IO server.
@@ -25,12 +25,21 @@ $(document).ready(function () {
         if (data.userId) currentUserId = data.userId;
         if (data.symbol) $('#symbol').text(data.symbol);
         if (data.gridDimension) {
+            var marginPx = 4;
             $grid.empty();
             columns = data.gridDimension[0];
+
             rows = data.gridDimension[1];
+            itemHeight = ($grid.height() / rows) - marginPx;
+            itemWidth = ($grid.width() / columns) - marginPx;
+
             for (var i = 0; i < rows; i++) {
                 for (var j = 0; j < columns; j++) {
-                    $grid.append($('<div/>').addClass('item'))
+                    $grid.append($('<div/>').addClass('item').css({
+                        height: itemHeight,
+                        width: itemWidth,
+                        "line-height": itemHeight + 'px'
+                    }))
                 }
             }
         }
@@ -123,11 +132,6 @@ $(document).ready(function () {
     $('#btn-right').on('click', function (e) {
         makeMove('right');
     });
-
-    function gettingGridIntPosition(position) {
-        var posX = position[0], posY = position[1];
-        return ((posY - 1) * columns) + (posX - 1)
-    }
 
     function makeMove(direction) {
         socket.emit('movement', {direction: direction});

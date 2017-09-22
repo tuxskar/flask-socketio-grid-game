@@ -50,20 +50,17 @@ html, body {
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: repeat(20, auto);
-    grid-template-rows: repeat(10, auto);
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
     height: 100%;
-    padding: 15px;
 }
 
 .grid .item {
     background-color: rgba(0, 128, 0, 0.14);
-    display: grid;
+    display: inline-block;
     vertical-align: middle;
     color: black;
+    margin: 2px;
+    overflow: hidden;
+    text-align: center;
 }
 
 .grid .item div {
