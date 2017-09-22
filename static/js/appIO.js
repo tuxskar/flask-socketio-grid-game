@@ -5,7 +5,8 @@ $(document).ready(function () {
 
     var rows,
         columns,
-        $grid = $('.grid');
+        $grid = $('.grid'),
+        grid;
 
 
     // Connect to the Socket.IO server.
@@ -88,10 +89,18 @@ $(document).ready(function () {
         var currentUserClass = (currentUserId === positionUserId ? 'current-user-item' : 'other-user-item');
         if (remove) {
             var $positionItem = $('#' + positionUserId),
-            $parent = $positionItem.parent();
+                $parent = $positionItem.parent();
             $positionItem.remove();
-            if ($parent.find('div').length === 0){
-                $parent.removeClass(currentUserClass);
+            var $otherItems = $parent.find('div');
+
+            $parent.removeClass('current-user-item other-user-item');
+            if ($otherItems.length > 0) {
+                var currentUserHere = $otherItems.find('#' + currentUserId).length > 0,
+                    newClass = 'other-user-item';
+                if (currentUserHere) {
+                    newClass = 'current-user-item';
+                }
+                $parent.addClass(newClass);
             }
             return
         }
@@ -115,32 +124,38 @@ $(document).ready(function () {
         makeMove('right');
     });
 
-    function makeMove(direction){
+    function gettingGridIntPosition(position) {
+        var posX = position[0], posY = position[1];
+        return ((posY - 1) * columns) + (posX - 1)
+    }
+
+    function makeMove(direction) {
         socket.emit('movement', {direction: direction});
     }
 
-    $(document).keydown(function(e) {
-    switch(e.which) {
-        case 37: // left
-            makeMove('left');
-        break;
+    $(document).keydown(function (e) {
+        switch (e.which) {
+            case 37: // left
+                makeMove('left');
+                break;
 
-        case 38: // up
-            makeMove('up');
-        break;
+            case 38: // up
+                makeMove('up');
+                break;
 
-        case 39: // right
-            makeMove('right');
-        break;
+            case 39: // right
+                makeMove('right');
+                break;
 
-        case 40: // down
-            makeMove('down');
-        break;
+            case 40: // down
+                makeMove('down');
+                break;
 
-        default: return; // exit this handler for other keys
-    }
-    e.preventDefault(); // prevent the default action (scroll / move caret)
-});
+            default:
+                return; // exit this handler for other keys
+        }
+        e.preventDefault(); // prevent the default action (scroll / move caret)
+    });
 
 
 });

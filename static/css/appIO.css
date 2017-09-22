@@ -36,7 +36,8 @@ html, body {
     background-color: mediumaquamarine;
     display: table-row;
 }
-.footer-content{
+
+.footer-content {
     margin: 10px 0;
     text-align: center;
 }
@@ -75,7 +76,8 @@ html, body {
     font-weight: bold;
     color: white;
 }
-.grid .other-user-item{
+
+.grid .other-user-item {
     background: indianred;
 }
 
@@ -86,6 +88,11 @@ html, body {
 }
 
 .brand-logo {
-    font-size: 3em;
+    font-size: 1.7em;
     color: white;
+    margin: 0.7em 0;
+    -webkit-margin-before: 0.7em;
+    -webkit-margin-after: 0.7em;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
 }
