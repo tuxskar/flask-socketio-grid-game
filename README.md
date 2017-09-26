@@ -13,5 +13,3 @@ Now go to your favourite web browser to the url:
 <http://127.0.0.1:5000>
 
 And check this amazing demo game.
-
-Check this game online at <http://pycones2017.oramirez.com>
